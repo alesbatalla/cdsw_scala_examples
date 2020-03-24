@@ -4,7 +4,7 @@ Let's play with some ebay auction data
 
 //load local data to hdfs
 import sys.process._
-"hdfs dfs -put data/ebay-xbox.csv /tmp" !
+"hdfs dfs -put data/ebay-xbox.csv /tmp/data" !
 
 // SQLContext entry point for working with structured data
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -16,7 +16,7 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 
 // load the data into a new RDD
-val ebayText = sc.textFile("/tmp/ebay-xbox.csv") // needs to match location in hdfs
+val ebayText = sc.textFile("/tmp/data/ebay-xbox.csv") // needs to match location in hdfs
 // Return the first element in this RDD
 ebayText.first()
 
